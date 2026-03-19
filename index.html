@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عيد سعيد · هدية لأتولتي</title>
+  <!-- Font Awesome for rose icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Arabic friendly & romantic -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fff9f0 0%, #ffe6f0 100%);
+      font-family: 'Cairo', 'Amiri', 'Traditional Arabic', sans-serif;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* ---------- roses around edges ---------- */
+    .rose-garden {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;  /* so they don't block clicks */
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .rose-garden i {
+      position: absolute;
+      font-size: calc(20px + 2vw);
+      color: rgba(255, 120, 160, 0.5);
+      text-shadow: 0 0 8px #ffb6c1, 0 0 12px #ff69b4;
+      transform: rotate(0deg);
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.7;
+      transition: all 0.3s;
+    }
+
+    /* different colors & sizes for variety */
+    .rose-garden i:nth-child(odd) {
+      color: rgba(255, 182, 193, 0.7); /* light pink */
+      font-size: calc(30px + 2vw);
+    }
+    .rose-garden i:nth-child(3n) {
+      color: rgba(255, 105, 180, 0.65); /* hot pink */
+      transform: rotate(15deg);
+    }
+    .rose-garden i:nth-child(5n+2) {
+      color: rgba(255, 20, 147, 0.5); /* deep pink */
+    }
+    .rose-garden i:nth-child(7n+4) {
+      color: rgba(255, 192, 203, 0.8); /* pink */
+      font-size: calc(25px + 1.5vw);
+    }
+
+    /* positioning around the edges */
+    .rose-garden i:nth-child(1) { top: 2%; left: 1%; }
+    .rose-garden i:nth-child(2) { top: 5%; right: 3%; }
+    .rose-garden i:nth-child(3) { bottom: 8%; left: 4%; }
+    .rose-garden i:nth-child(4) { bottom: 3%; right: 2%; }
+    .rose-garden i:nth-child(5) { top: 15%; left: 8%; }
+    .rose-garden i:nth-child(6) { top: 20%; right: 7%; }
+    .rose-garden i:nth-child(7) { bottom: 20%; left: 9%; }
+    .rose-garden i:nth-child(8) { bottom: 25%; right: 6%; }
+    .rose-garden i:nth-child(9) { top: 40%; left: 2%; }
+    .rose-garden i:nth-child(10) { top: 45%; right: 1%; }
+    .rose-garden i:nth-child(11) { bottom: 45%; left: 3%; }
+    .rose-garden i:nth-child(12) { bottom: 50%; right: 4%; }
+    .rose-garden i:nth-child(13) { top: 70%; left: 5%; }
+    .rose-garden i:nth-child(14) { top: 75%; right: 5%; }
+    .rose-garden i:nth-child(15) { bottom: 70%; left: 7%; }
+    .rose-garden i:nth-child(16) { bottom: 75%; right: 8%; }
+    .rose-garden i:nth-child(17) { top: 88%; left: 2%; }
+    .rose-garden i:nth-child(18) { top: 92%; right: 3%; }
+    .rose-garden i:nth-child(19) { bottom: 88%; left: 6%; }
+    .rose-garden i:nth-child(20) { bottom: 92%; right: 7%; }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(5deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    /* ---------- main content card ---------- */
+    .content-card {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 250, 240, 0.75); /* soft floral white */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 60px 20px 60px 20px;
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25), 0 8px 20px rgba(255, 192, 203, 0.5), 0 0 0 2px #fff9f0 inset;
+      padding: 40px 30px;
+      border: 2px solid #fff0f5;
+      transition: all 0.3s;
+    }
+
+    /* heading */
+    h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      text-align: center;
+      color: #d44e7a;
+      text-shadow: 3px 3px 0 #ffccdd, 6px 6px 20px #ffaacc;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      word-break: break-word;
+    }
+    h1 i {
+      color: #ff3388;
+      font-size: 3.5rem;
+      margin: 0 5px;
+    }
+
+    /* video container */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 25px auto;
+      border-radius: 40px 15px 40px 15px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px #ffb6c1, 0 0 0 5px #fff0f5;
+      transition: transform 0.3s;
+    }
+    .video-wrapper:hover {
+      transform: scale(1.01);
+    }
+    .video-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+      border: none;
+    }
+
+    /* morning line */
+    .morning-line {
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-align: center;
+      color: #b3416b;
+      background: linear-gradient(135deg, #ffe4ec, #ffeef8);
+      padding: 15px 20px;
+      border-radius: 100px 30px 100px 30px;
+      margin: 30px 0 20px;
+      box-shadow: 0 10px 20px #fec5d9;
+      display: inline-block;
+      width: auto;
+      margin-right: auto;
+      margin-left: auto;
+      display: table; /* center nicely */
+      border: 2px solid white;
+    }
+
+    /* poem stanzas */
+    .poem {
+      margin: 30px 0 20px;
+    }
+    .stanza {
+      margin-bottom: 30px;
+    }
+    .poem-line {
+      font-family: 'Amiri', 'Cairo', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.7;
+      text-align: center;
+      padding: 5px 0;
+      transition: 0.2s;
+    }
+    .poem-line:hover {
+      transform: scale(1.02);
+      text-shadow: 0 0 8px #ffc0cb;
+    }
+
+    /* colorful lines using nth-child */
+    .poem-line:nth-child(1) { color: #b23b6d; }  /* deep rose */
+    .poem-line:nth-child(2) { color: #c95a7f; }
+    .poem-line:nth-child(3) { color: #aa4e78; }
+    .poem-line:nth-child(4) { color: #d2698a; }
+    .poem-line:nth-child(5) { color: #b3446c; }
+    .poem-line:nth-child(6) { color: #c44b77; }
+    .poem-line:nth-child(7) { color: #a5486b; }
+    .poem-line:nth-child(8) { color: #e36b93; }
+    .poem-line:nth-child(9) { color: #bf4d7a; }
+    .poem-line:nth-child(10) { color: #cf5f88; }
+    .poem-line:nth-child(11) { color: #ba4f7a; }
+    .poem-line:nth-child(12) { color: #e67a9f; }
+    .poem-line:nth-child(13) { color: #b3426b; }
+    .poem-line:nth-child(14) { color: #d45d87; }
+
+    /* special touches: little hearts between stanzas */
+    .stanza:not(:last-child)::after {
+      content: "✿ 💗 ✿";
+      display: block;
+      text-align: center;
+      font-size: 1.6rem;
+      color: #ff99bb;
+      letter-spacing: 8px;
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
+    /* dedication */
+    .dedication {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      color: #9f4570;
+      background: rgba(255, 240, 245, 0.8);
+      padding: 20px 15px;
+      border-radius: 50px 10px 50px 10px;
+      border-right: 8px solid #ffa5c3;
+      border-left: 8px solid #ffa5c3;
+      margin-top: 30px;
+      box-shadow: 0 5px 15px #ffc0cb;
+      word-break: break-word;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 3rem; }
+      .morning-line { font-size: 1.8rem; }
+      .poem-line { font-size: 1.5rem; }
+      .dedication { font-size: 1.5rem; }
+      .video-wrapper iframe { height: 240px; }
+      .content-card { padding: 25px 15px; }
+    }
+
+    /* extra sparkle */
+    .fa-heart, .fa-rose {
+      filter: drop-shadow(0 4px 6px #f9a8d4);
+    }
+  </style>
+</head>
+<body>
+  <!-- decorative roses around edges (font awesome) -->
+  <div class="rose-garden">
+    <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i>
+    <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i>
+    <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i>
+    <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i>
+    <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i> <i class="fas fa-rose"></i>
+    <!-- extra hearts floating too -->
+    <i class="fas fa-heart" style="position: absolute; top: 12%; right: 12%; color: #ffb3c6; font-size: 28px; opacity: 0.4; transform: rotate(-10deg);"></i>
+    <i class="fas fa-heart" style="position: absolute; bottom: 18%; left: 15%; color: #ffa5b0; font-size: 40px; opacity: 0.3; transform: rotate(20deg);"></i>
+  </div>
+
+  <!-- main content -->
+  <div class="content-card">
+    <h1>عيد سعيد <i class="fas fa-heart" style="color:#ff4499;"></i></h1>
+
+    <!-- video embed with autoplay (muted) -->
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/K3haT0ezVEg?autoplay=1&mute=1&si=ZQsnZCr3b41ECu5k&loop=1&playlist=K3haT0ezVEg" 
+        title="عيد سعيد"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- morning line -->
+    <div class="morning-line">
+      صباح الخير يا حبيبتي <i class="fas fa-heart" style="color:#ff2277;"></i>
+    </div>
+
+    <!-- poem with stanzas and colorful lines -->
+    <div class="poem">
+      <!-- stanza 1 -->
+      <div class="stanza">
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ بِخَيْرٍ يَا دُودَتِي</div>
+      </div>
+
+      <!-- stanza 2 -->
+      <div class="stanza">
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ طِفْلَتِي الَّتِي أُحِبُّهَا</div>
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ عِيدِي</div>
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ حَبِيبَتِي</div>
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ نُورُ حَيَاتِي</div>
+      </div>
+
+      <!-- stanza 3 -->
+      <div class="stanza">
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ أَفْضَلُ مَا وُهِبْتُ</div>
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ مَعِي</div>
+        <div class="poem-line">كُلُّ عِيدٍ وَأَنْتِ لِي</div>
+      </div>
+
+      <!-- stanza 4 -->
+      <div class="stanza">
+        <div class="poem-line">أَنْتِ عِيدِي الْأَبَدِيُّ يَا حَبِيبَتِي</div>
+        <div class="poem-line">أَسْأَلُ اللَّهَ أَنْ يُدِيمَكِ لِي وَأَنْ يَحْفَظَكِ مِنْ كُلِّ سُوءٍ</div>
+      </div>
+
+      <!-- stanza 5 -->
+      <div class="stanza">
+        <div class="poem-line">أُحِبُّكِ يَا أَنِيسَةَ رُوحِي</div>
+      </div>
+    </div>
+
+    <!-- dedication -->
+    <div class="dedication">
+      💗 اهداء خاص لأتولتي 💗
+    </div>
+
+    <!-- tiny footer (optional, just for charm) -->
+    <div style="text-align: center; margin-top: 25px; color: #ce7a9e; font-size: 1.2rem; opacity: 0.8;">
+      <i class="fas fa-rose"></i> مع كل وردة، أنتِ أجمل <i class="fas fa-rose"></i>
+    </div>
+  </div>
+</body>
+  </html>
